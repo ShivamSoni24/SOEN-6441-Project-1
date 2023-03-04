@@ -1,17 +1,21 @@
 package domain.user;
 
 public abstract class User {
+    private static int counter = 0;
     String id;
     String name;
     String email;
     String phoneNo;
 
-    public String getId() {
-        return id;
+    public User(String name, String email, String phoneNo) {
+        this.id = String.valueOf(++counter);
+        this.email = email;
+        this.phoneNo = phoneNo;
+        this.name = name;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public String getId() {
+        return id;
     }
 
     public String getName() {

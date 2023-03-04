@@ -17,8 +17,9 @@ public class UserRepository implements UserRepoInterface {
         return false;
     }
 
-    public void add(User u) {
+    public String add(User u) {
         users.add(u);
+        return u.getId();
     }
 
     public boolean delete(String id){

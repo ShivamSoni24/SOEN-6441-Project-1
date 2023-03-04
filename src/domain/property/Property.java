@@ -1,6 +1,7 @@
 package domain.property;
 
 public abstract class Property {
+    private static int counter = 0;
     String id;
     String streetName;
     String city;
@@ -9,6 +10,9 @@ public abstract class Property {
     String country;
     boolean isOccupied;
 
+    public Property() {
+        this.id = String.valueOf(++counter);
+    }
     public String getId() {
         return id;
     }

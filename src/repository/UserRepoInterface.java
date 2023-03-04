@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface UserRepoInterface {
     boolean isExists(String id);
-    void add(User p);
+    String add(User p);
     boolean delete(String id);
     User get(String id);
 }

@@ -3,11 +3,11 @@ package service;
 import domain.property.Property;
 import repository.PropertyRepoInterface;
 
-public class PropertyService {
+public class PropertyService implements PropertySvcInterface{
     private PropertyRepoInterface propertyRepo;
 
-    public PropertyService(PropertyRepoInterface propertyRepository) {
-        this.propertyRepo = propertyRepository;
+    public PropertyService(PropertyRepoInterface propertyRepo) {
+        this.propertyRepo = propertyRepo;
     }
 
     public void add(Property p){
