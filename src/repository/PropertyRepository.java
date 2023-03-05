@@ -2,7 +2,6 @@ package repository;
 
 import domain.Contract;
 import domain.property.Property;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,8 +30,7 @@ public class PropertyRepository implements PropertyRepoInterface {
         return false;
     }
     @Override
-    @NotNull
-    public String addProperty(@NotNull Property p) {
+    public String addProperty(Property p) {
         properties.add(p.clone());
 
         return p.getId();

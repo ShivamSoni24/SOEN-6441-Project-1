@@ -16,21 +16,20 @@ public class PropertyController {
         this.propertySvc = propertySvc;
     }
 
-    public String addHouse(String streetName, String city, String postalCode, String province, String country,
-                           int houseNo, int streetNo) {
-        House h = new House(streetName, city, postalCode, province, country, houseNo, streetNo);
+    public String addHouse(String streetName, String city, String postalCode, String province, String country, int streetNo) {
+        House h = new House(streetName, city, postalCode, province, country, streetNo);
         return propertySvc.add(h);
     }
 
     public String addApartment(String streetName, String city, String postalCode, String province, String country,
-                               int aptNo){
-        Apartment a = new Apartment(streetName, city, postalCode, province, country, aptNo);
+                               int aptNo, int noOfBedrooms, int noOfBathrooms, double squareFootArea){
+        Apartment a = new Apartment(streetName, city, postalCode, province, country, aptNo, noOfBedrooms, noOfBathrooms, squareFootArea);
         return propertySvc.add(a);
     }
 
     public String addCondo(String streetName, String city, String postalCode, String province, String country,
-                           int condoNo){
-        Condo c = new Condo(streetName, city, postalCode, province, country, condoNo);
+                           int condoNo, int noOfBedrooms, int noOfBathrooms, double squareFootArea){
+        Condo c = new Condo(streetName, city, postalCode, province, country, condoNo, noOfBedrooms, noOfBathrooms, squareFootArea);
         return propertySvc.add(c);
     }
 

@@ -5,8 +5,11 @@ public class BuildingUnit extends Property {
     int noOfBathrooms;
     double squareFootArea;
 
-    public BuildingUnit(String streetName, String city, String postalCode, String province, String country) {
+    public BuildingUnit(String streetName, String city, String postalCode, String province, String country, int noOfBedrooms, int noOfBathrooms, double squareFootArea) {
         super(streetName, city, postalCode, province, country);
+        this.noOfBedrooms = noOfBedrooms;
+        this.noOfBathrooms = noOfBathrooms;
+        this.squareFootArea = squareFootArea;
     }
 
     public int getNoOfBedrooms() {

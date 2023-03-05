@@ -7,4 +7,14 @@ public class Tenant extends User {
     }
 
     boolean isRentPaid;
+
+    @Override
+    public String toString() {
+        return "Tenant{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", phoneNo='" + phoneNo + '\'' +
+                '}';
+    }
 }

@@ -1,30 +1,31 @@
 package domain.property;
 
 public class House extends Property{
-    int houseNo;
     int streetNo;
 
-    public House(String streetName, String city, String postalCode, String province, String country,
-                 int houseNo, int streetNo) {
+    public House(String streetName, String city, String postalCode, String province, String country, int streetNo) {
         super(streetName, city, postalCode, province, country);
-        this.houseNo = houseNo;
         this.streetNo = streetNo;
     }
-
-
-    public int getHouseNo() {
-        return houseNo;
-    }
-
-    public void setHouseNo(int houseNo) {
-        this.houseNo = houseNo;
-    }
-
     public int getStreetNo() {
         return streetNo;
     }
 
     public void setStreetNo(int streetNo) {
         this.streetNo = streetNo;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "id='" + id +
+                ", streetNo=" + streetNo + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", city='" + city + '\'' +
+                ", postalCode='" + postalCode + '\'' +
+                ", province='" + province + '\'' +
+                ", country='" + country + '\'' +
+                ", isOccupied=" + isOccupied +
+                '}';
     }
 }
