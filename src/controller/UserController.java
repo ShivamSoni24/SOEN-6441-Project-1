@@ -15,7 +15,13 @@ public class UserController {
     }
 
     public String addTenant(String name, String email, String phone){
-        return userSvc.addTenant(new Tenant(name, email, phone));
+        Tenant t = new Tenant(name, email, phone);
+        return userSvc.addUser(t);
+    }
+
+    public String addAdmin(String name, String email, String phone){
+        Admin a = new Admin(name, email, phone);
+        return userSvc.addUser(a);
     }
 
     public List<Tenant> getTenants(){

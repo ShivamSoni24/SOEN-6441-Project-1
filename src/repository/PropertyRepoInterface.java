@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface PropertyRepoInterface {
     boolean isPropertyExists(String id);
-    void addProperty(Property p);
+    String addProperty(Property p);
     boolean deleteProperty(String id);
     Property getProperty(String id);
     boolean addInterest(String propertyId, String tenantId);

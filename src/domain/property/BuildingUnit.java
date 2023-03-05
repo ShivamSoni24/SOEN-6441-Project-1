@@ -5,6 +5,10 @@ public class BuildingUnit extends Property {
     int noOfBathrooms;
     double squareFootArea;
 
+    public BuildingUnit(String streetName, String city, String postalCode, String province, String country) {
+        super(streetName, city, postalCode, province, country);
+    }
+
     public int getNoOfBedrooms() {
         return noOfBedrooms;
     }

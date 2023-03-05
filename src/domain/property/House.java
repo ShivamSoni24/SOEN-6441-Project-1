@@ -4,6 +4,14 @@ public class House extends Property{
     int houseNo;
     int streetNo;
 
+    public House(String streetName, String city, String postalCode, String province, String country,
+                 int houseNo, int streetNo) {
+        super(streetName, city, postalCode, province, country);
+        this.houseNo = houseNo;
+        this.streetNo = streetNo;
+    }
+
+
     public int getHouseNo() {
         return houseNo;
     }

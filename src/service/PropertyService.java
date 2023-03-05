@@ -10,13 +10,14 @@ public class PropertyService implements PropertySvcInterface{
         this.propertyRepo = propertyRepo;
     }
 
-    public void add(Property p){
+    public String add(Property p){
         if(propertyRepo.isPropertyExists(p.getId())){
-            return;
+            return null;
         }
 
-        propertyRepo.addProperty(p);
+        return propertyRepo.addProperty(p);
     }
+
 
 
 

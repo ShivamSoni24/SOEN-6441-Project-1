@@ -12,12 +12,12 @@ public class UserService implements UserSvcInterface{
         this.userRepo = userRepo;
     }
 
-    public String addTenant(Tenant t) {
-        if(userRepo.isExists(t.getId())){
+    public String addUser(User u) {
+        if(userRepo.isExists(u.getId())){
             return null;
         }
 
-        return userRepo.add(t);
+        return userRepo.add(u);
     }
 
     public List<Tenant> getTenants(){

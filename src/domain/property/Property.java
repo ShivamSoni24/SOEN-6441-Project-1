@@ -1,6 +1,6 @@
 package domain.property;
 
-public abstract class Property {
+public abstract class Property implements Cloneable{
     private static int counter = 0;
     String id;
     String streetName;
@@ -10,8 +10,13 @@ public abstract class Property {
     String country;
     boolean isOccupied;
 
-    public Property() {
+    public Property(String streetName, String city, String postalCode, String province, String country) {
         this.id = String.valueOf(++counter);
+        this.streetName = streetName;
+        this.city = city;
+        this.postalCode = postalCode;
+        this.province = province;
+        this.country = country;
     }
     public String getId() {
         return id;
@@ -63,6 +68,17 @@ public abstract class Property {
 
     public void setOccupied(boolean occupied) {
         isOccupied = occupied;
+    }
+
+    @Override
+    public Property clone() {
+        try {
+            Property clone = (Property) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }
 
