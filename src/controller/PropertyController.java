@@ -3,7 +3,10 @@ package controller;
 import domain.property.Apartment;
 import domain.property.Condo;
 import domain.property.House;
+import domain.property.Property;
 import service.PropertySvcInterface;
+
+import java.util.List;
 
 public class PropertyController {
 
@@ -25,8 +28,23 @@ public class PropertyController {
         return propertySvc.add(a);
     }
 
-    public String addCondo(String streetName, String city, String postalCode, String province, String country, int condoNo){
+    public String addCondo(String streetName, String city, String postalCode, String province, String country,
+                           int condoNo){
         Condo c = new Condo(streetName, city, postalCode, province, country, condoNo);
         return propertySvc.add(c);
+    }
+
+    public List<Condo> getAllCondos(){
+       return propertySvc.getCondos();
+    }
+    public List<House> getAllHouses(){
+        return propertySvc.getHouses();
+    }
+    public List<Apartment> getAllApartments(){
+        return propertySvc.getApartments();
+    }
+
+    public List<Property> getAllProperties(){
+        return propertySvc.getProperties();
     }
 }

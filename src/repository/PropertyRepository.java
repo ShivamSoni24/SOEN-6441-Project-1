@@ -116,4 +116,9 @@ public class PropertyRepository implements PropertyRepoInterface {
 
         return null;
     }
+
+    @Override
+    public List<Property> getAll() {
+        return new ArrayList<>(properties);
+    }
 }

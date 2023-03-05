@@ -17,6 +17,7 @@ public abstract class Property implements Cloneable{
         this.postalCode = postalCode;
         this.province = province;
         this.country = country;
+        this.isOccupied = false;
     }
     public String getId() {
         return id;
@@ -73,9 +74,7 @@ public abstract class Property implements Cloneable{
     @Override
     public Property clone() {
         try {
-            Property clone = (Property) super.clone();
-            // TODO: copy mutable state here, so the clone can't change the internals of the original
-            return clone;
+            return (Property) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
         }

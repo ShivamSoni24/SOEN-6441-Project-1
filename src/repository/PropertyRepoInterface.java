@@ -16,4 +16,6 @@ public interface PropertyRepoInterface {
     void addContract(Contract c);
     boolean deleteContract(String id);
     Contract getContract(String id);
+
+    List<Property> getAll();
 }

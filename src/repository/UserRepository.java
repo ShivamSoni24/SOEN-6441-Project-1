@@ -44,8 +44,6 @@ public class UserRepository implements UserRepoInterface {
     }
 
     public List<User> getAll(){
-        List<User> clonedList = new ArrayList<>(users);
-
-        return clonedList;
+        return new ArrayList<>(users);
     }
 }
