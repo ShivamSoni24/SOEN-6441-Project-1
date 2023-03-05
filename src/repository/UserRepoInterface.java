@@ -9,4 +9,5 @@ public interface UserRepoInterface {
     String add(User p);
     boolean delete(String id);
     User get(String id);
+    List<User> getAll();
 }

@@ -1,6 +1,6 @@
 package domain.user;
 
-public abstract class User {
+public abstract class User implements Cloneable {
     private static int counter = 0;
     String id;
     String name;
@@ -40,5 +40,16 @@ public abstract class User {
 
     public void setPhoneNo(String phoneNo) {
         this.phoneNo = phoneNo;
+    }
+
+    @Override
+    public User clone() {
+        try {
+            User clone = (User) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
     }
 }

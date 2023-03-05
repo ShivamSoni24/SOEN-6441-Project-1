@@ -1,8 +1,7 @@
 package controller;
 
+import domain.user.Admin;
 import domain.user.Tenant;
-import domain.user.User;
-import service.UserService;
 import service.UserSvcInterface;
 
 import java.util.List;
@@ -19,7 +18,11 @@ public class UserController {
         return userSvc.addTenant(new Tenant(name, email, phone));
     }
 
-//    public List<Tenant> listTenant(){
-//        return List<Tenant> ();
-//    }
+    public List<Tenant> getTenants(){
+        return userSvc.getTenants();
+    }
+
+    public List<Admin> getAdmins() {
+        return userSvc.getAdmins();
+    }
 }

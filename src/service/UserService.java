@@ -1,8 +1,9 @@
 package service;
 
-import domain.user.Tenant;
+import domain.user.*;
 import repository.UserRepoInterface;
-import repository.UserRepository;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserService implements UserSvcInterface{
 
@@ -19,4 +20,27 @@ public class UserService implements UserSvcInterface{
         return userRepo.add(t);
     }
 
+    public List<Tenant> getTenants(){
+        List<Tenant> tenantList = new ArrayList<>();
+
+        for(User u:userRepo.getAll()){
+            if(u instanceof Tenant){
+                tenantList.add((Tenant) u);
+            }
+        }
+
+        return tenantList;
+    }
+
+    public List<Admin> getAdmins(){
+        List<Admin> adminList = new ArrayList<>();
+
+        for(User u:userRepo.getAll()){
+            if(u instanceof Admin){
+                adminList.add((Admin) u);
+            }
+        }
+
+        return adminList;
+    }
 }
