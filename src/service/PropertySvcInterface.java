@@ -9,6 +9,7 @@ import java.util.List;
 
 public interface PropertySvcInterface {
     String add(Property p);
+    Property getProperty(String id);
     List<House> getHouses();
     List<Condo> getCondos();
     List<Apartment> getApartments();

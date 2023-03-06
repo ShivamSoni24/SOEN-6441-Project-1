@@ -71,4 +71,9 @@ public class PropertyService implements PropertySvcInterface{
     public List<Property> getProperties() {
         return propertyRepo.getAll();
     }
+
+    @Override
+    public Property getProperty(String id) {
+        return propertyRepo.getProperty(id);
+    }
 }

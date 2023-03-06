@@ -20,6 +20,16 @@ public class UserService implements UserSvcInterface{
         return userRepo.add(u);
     }
 
+    public Tenant getTenant(String id) {
+        User u = userRepo.get(id);
+
+        if(u instanceof Tenant){
+            return (Tenant) u;
+        }
+
+        return null;
+    }
+
     public List<Tenant> getTenants(){
         List<Tenant> tenantList = new ArrayList<>();
 

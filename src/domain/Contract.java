@@ -3,12 +3,22 @@ package domain;
 import java.time.LocalDate;
 
 public class Contract {
+    private static int counter = 0;
     String id;
     String tenantId;
     String propertyId;
     LocalDate startDate;
     LocalDate endDate;
     double monthlyRate;
+
+    public Contract(String tenantId, String propertyId, LocalDate startDate, LocalDate endDate, double monthlyRate) {
+        this.id = String.valueOf(++counter);
+        this.tenantId = tenantId;
+        this.propertyId = propertyId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.monthlyRate = monthlyRate;
+    }
 
     public String getId() {
         return id;
