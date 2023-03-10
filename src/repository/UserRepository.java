@@ -2,48 +2,38 @@ package repository;
 
 import models.user.User;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class UserRepository implements UserRepoInterface {
-    private List<User> users = new ArrayList<>();
+    private final Map<String, User> users;
+
+    public UserRepository() {
+        this.users = new HashMap<>();
+    }
 
     public boolean isExists(String id) {
-        for(User u:users){
-            if(u.getId().equals(id)){
-                return true;
-            }
-        }
-
-        return false;
+        return users.containsKey(id);
     }
 
     public String add(User u) {
-        users.add(u);
+        users.put(u.getId(), u.clone());
+
         return u.getId();
     }
 
     public boolean delete(String id){
-        for(int i=0; i<users.size(); i++){
-            if(users.get(i).getId().equals(id)){
-                users.remove(i);
-                return true;
-            }
-        }
+        User u = users.remove(id);
 
-        return false;
+        return u!=null;
     }
 
     public User get(String id){
-        for(User u:users){
-            if(u.getId().equals(id)){
-                return u;
-            }
-        }
-
-        return null;
+        return users.get(id);
     }
 
     public List<User> getAll(){
-        return new ArrayList<>(users);
+        return new ArrayList<>(users.values());
     }
 }

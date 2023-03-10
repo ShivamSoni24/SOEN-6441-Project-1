@@ -9,52 +9,35 @@ import java.util.List;
 import java.util.Map;
 
 public class PropertyRepository implements PropertyRepoInterface {
-    private List<Property> properties;
-    private Map<String, List<String>> tenantInterest;
-    private List<Contract> contracts;
+    private final Map<String,Property> properties;
+    private final Map<String, List<String>> tenantInterest;
+    private final Map<String,Contract> contracts;
 
     public PropertyRepository() {
-        properties = new ArrayList<>();
+        properties = new HashMap<>();
         tenantInterest = new HashMap<>();
-        contracts = new ArrayList<>();
+        contracts = new HashMap<>();
     }
 
     @Override
     public boolean isPropertyExists(String id) {
-        for(Property p:properties){
-            if(p.getId().equals(id)){
-                return true;
-            }
-        }
-
-        return false;
+        return properties.containsKey(id);
     }
     @Override
     public String addProperty(Property p) {
-        properties.add(p.clone());
+        properties.put(p.getId(), p.clone());
 
         return p.getId();
     }
     @Override
     public boolean deleteProperty(String id){
-        for(int i=0; i<properties.size(); i++){
-            if(properties.get(i).getId().equals(id)){
-                properties.remove(i);
-                return true;
-            }
-        }
+        Property p = properties.remove(id);
 
-        return false;
+        return p != null;
     }
     @Override
     public Property getProperty(String id){
-        for(Property p:properties){
-            if(p.getId().equals(id)){
-                return p;
-            }
-        }
-
-        return null;
+        return properties.get(id);
     }
     @Override
     public boolean addInterest(String propertyId, String tenantId) {
@@ -78,45 +61,28 @@ public class PropertyRepository implements PropertyRepoInterface {
 
     @Override
     public boolean isContractExists(String id) {
-        for(Contract c:contracts){
-            if(c.getId().equals(id)){
-                return true;
-            }
-        }
-
-        return false;
+        return contracts.containsKey(id);
     }
 
     @Override
     public void addContract(Contract c) {
-        contracts.add(c);
+        contracts.put(c.getId(), c);
     }
 
     @Override
     public boolean deleteContract(String id) {
-        for(int i=0; i<contracts.size(); i++){
-            if(contracts.get(i).getId().equals(id)){
-                contracts.remove(i);
-                return true;
-            }
-        }
+        Contract c = contracts.remove(id);
 
-        return false;
+        return c!=null;
     }
 
     @Override
     public Contract getContract(String id) {
-        for(Contract c:contracts){
-            if(c.getId().equals(id)){
-                return c;
-            }
-        }
-
-        return null;
+        return contracts.get(id);
     }
 
     @Override
     public List<Property> getAll() {
-        return new ArrayList<>(properties);
+        return new ArrayList<>(properties.values());
     }
 }
