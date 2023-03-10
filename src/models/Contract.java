@@ -1,5 +1,7 @@
 package models;
 
+import models.user.User;
+
 import java.time.LocalDate;
 
 public class Contract {
@@ -11,11 +13,11 @@ public class Contract {
     LocalDate endDate;
     double monthlyRate;
 
-    public Contract(String tenantId, String propertyId, LocalDate startDate, LocalDate endDate, double monthlyRate) {
+    public Contract(String tenantId, String propertyId, LocalDate endDate, double monthlyRate) {
         this.id = String.valueOf(++counter);
         this.tenantId = tenantId;
         this.propertyId = propertyId;
-        this.startDate = startDate;
+        this.startDate = LocalDate.now();
         this.endDate = endDate;
         this.monthlyRate = monthlyRate;
     }
@@ -63,5 +65,11 @@ public class Contract {
     public void setMonthlyRate(double monthlyRate) {
         this.monthlyRate = monthlyRate;
     }
-
+    public Contract clone() {
+        try {
+            return (Contract) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

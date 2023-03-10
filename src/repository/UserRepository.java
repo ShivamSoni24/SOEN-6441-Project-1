@@ -30,10 +30,16 @@ public class UserRepository implements UserRepoInterface {
     }
 
     public User get(String id){
-        return users.get(id);
+        return users.get(id).clone();
     }
 
     public List<User> getAll(){
-        return new ArrayList<>(users.values());
+        List<User> usersList = new ArrayList<>();
+
+        for(User u:users.values()){
+            usersList.add(u.clone());
+        }
+
+        return usersList;
     }
 }

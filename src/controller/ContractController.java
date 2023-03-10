@@ -11,8 +11,8 @@ public class ContractController {
         this.contractSvc = contractSvc;
     }
 
-    public boolean rentUnit(String tenantId, String propertyId, LocalDate startDate, LocalDate endDate, double monthlyRate) {
-        Contract c = new Contract(tenantId, propertyId, startDate, endDate, monthlyRate);
+    public String rentUnit(String tenantId, String propertyId, LocalDate endDate, double monthlyRate) throws Exception{
+        Contract c = new Contract(tenantId, propertyId, endDate, monthlyRate);
         return contractSvc.createContract(c);
     }
 

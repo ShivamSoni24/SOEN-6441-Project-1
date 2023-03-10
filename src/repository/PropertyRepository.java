@@ -11,12 +11,10 @@ import java.util.Map;
 public class PropertyRepository implements PropertyRepoInterface {
     private final Map<String,Property> properties;
     private final Map<String, List<String>> tenantInterest;
-    private final Map<String,Contract> contracts;
 
     public PropertyRepository() {
         properties = new HashMap<>();
         tenantInterest = new HashMap<>();
-        contracts = new HashMap<>();
     }
 
     @Override
@@ -29,6 +27,11 @@ public class PropertyRepository implements PropertyRepoInterface {
 
         return p.getId();
     }
+
+    @Override
+    public void updateProperty(String id, Property p){
+        properties.put(id, p.clone());
+    }
     @Override
     public boolean deleteProperty(String id){
         Property p = properties.remove(id);
@@ -37,7 +40,7 @@ public class PropertyRepository implements PropertyRepoInterface {
     }
     @Override
     public Property getProperty(String id){
-        return properties.get(id);
+        return properties.get(id).clone();
     }
     @Override
     public boolean addInterest(String propertyId, String tenantId) {
@@ -59,30 +62,15 @@ public class PropertyRepository implements PropertyRepoInterface {
         return tenantInterest.get(propertyId);
     }
 
-    @Override
-    public boolean isContractExists(String id) {
-        return contracts.containsKey(id);
-    }
-
-    @Override
-    public void addContract(Contract c) {
-        contracts.put(c.getId(), c);
-    }
-
-    @Override
-    public boolean deleteContract(String id) {
-        Contract c = contracts.remove(id);
-
-        return c!=null;
-    }
-
-    @Override
-    public Contract getContract(String id) {
-        return contracts.get(id);
-    }
 
     @Override
     public List<Property> getAll() {
-        return new ArrayList<>(properties.values());
+        List<Property> propertyList = new ArrayList<>();
+
+        for(Property p: properties.values()){
+            propertyList.add(p.clone());
+        }
+
+        return propertyList;
     }
 }
