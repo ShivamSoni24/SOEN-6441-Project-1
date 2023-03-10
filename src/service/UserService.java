@@ -1,6 +1,6 @@
 package service;
 
-import domain.user.*;
+import models.user.*;
 import repository.UserRepoInterface;
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,7 @@
 package repository;
 
-import domain.Contract;
-import domain.property.Property;
+import models.Contract;
+import models.property.Property;
 
 import java.util.List;
 

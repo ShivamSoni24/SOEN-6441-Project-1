@@ -1,7 +1,6 @@
 package service;
 
-import domain.Contract;
-import domain.property.Property;
+import models.Contract;
 
 public class ContractService implements ContractSvcInterface {
     private UserSvcInterface userSvc;

@@ -1,12 +1,9 @@
 package service;
 
-import domain.property.Apartment;
-import domain.property.Condo;
-import domain.property.House;
-import domain.property.Property;
-import domain.user.Admin;
-import domain.user.Tenant;
-import domain.user.User;
+import models.property.Apartment;
+import models.property.Condo;
+import models.property.House;
+import models.property.Property;
 import repository.PropertyRepoInterface;
 
 import java.util.ArrayList;

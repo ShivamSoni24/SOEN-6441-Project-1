@@ -1,4 +1,4 @@
-package domain.property;
+package models.property;
 
 public abstract class Property implements Cloneable{
     private static int counter = 0;

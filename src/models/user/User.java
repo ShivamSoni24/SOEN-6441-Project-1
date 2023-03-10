@@ -1,4 +1,4 @@
-package domain.user;
+package models.user;
 
 public abstract class User implements Cloneable {
     private static int counter = 0;

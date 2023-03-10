@@ -1,4 +1,4 @@
-package domain.property;
+package models.property;
 
 public class House extends Property{
     int streetNo;

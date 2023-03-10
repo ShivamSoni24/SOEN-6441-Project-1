@@ -1,6 +1,6 @@
 package controller;
 
-import domain.Contract;
+import models.Contract;
 import service.ContractSvcInterface;
 
 import java.time.LocalDate;

@@ -1,10 +1,9 @@
 package service;
 
-import domain.user.Admin;
-import domain.user.Tenant;
-import domain.user.User;
+import models.user.Admin;
+import models.user.Tenant;
+import models.user.User;
 
-import java.security.PublicKey;
 import java.util.List;
 
 public interface UserSvcInterface {

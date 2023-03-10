@@ -1,13 +1,16 @@
-package domain.user;
+package models.user;
 
-public class Admin extends User{
-    public Admin(String name, String email, String phoneNo) {
+public class Tenant extends User {
+
+    public Tenant(String name, String email, String phoneNo) {
         super(name, email, phoneNo);
     }
 
+    boolean isRentPaid;
+
     @Override
     public String toString() {
-        return "Admin{" +
+        return "Tenant{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

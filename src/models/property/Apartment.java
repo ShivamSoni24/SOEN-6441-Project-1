@@ -1,29 +1,21 @@
-package domain.property;
+package models.property;
 
-public class Condo extends BuildingUnit {
-    int condoNo;
+public class Apartment extends BuildingUnit{
+    int aptNo;
 
-    public Condo(String streetName, String city, String postalCode, String province, String country, int condoNo, int noOfBedrooms, int noOfBathrooms, double squareFootArea) {
+    public Apartment(String streetName, String city, String postalCode, String province, String country, int aptNo, int noOfBedrooms, int noOfBathrooms, double squareFootArea) {
         super(streetName, city, postalCode, province, country, noOfBedrooms, noOfBathrooms, squareFootArea);
-        this.condoNo = condoNo;
-    }
-
-    public int getCondoNo() {
-        return condoNo;
-    }
-
-    public void setCondoNo(int condoNo) {
-        this.condoNo = condoNo;
+        this.aptNo = aptNo;
     }
 
     @Override
     public String toString() {
-        return "Condo{" +
-                "id='" + id +
-                ", condoNo=" + condoNo + '\'' +
+        return "Apartment{" +
+                "aptNo=" + aptNo +
                 ", noOfBedrooms=" + noOfBedrooms +
                 ", noOfBathrooms=" + noOfBathrooms +
                 ", squareFootArea=" + squareFootArea +
+                ", id='" + id + '\'' +
                 ", streetName='" + streetName + '\'' +
                 ", city='" + city + '\'' +
                 ", postalCode='" + postalCode + '\'' +

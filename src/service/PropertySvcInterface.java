@@ -1,9 +1,9 @@
 package service;
 
-import domain.property.Apartment;
-import domain.property.Condo;
-import domain.property.House;
-import domain.property.Property;
+import models.property.Apartment;
+import models.property.Condo;
+import models.property.House;
+import models.property.Property;
 
 import java.util.List;
 

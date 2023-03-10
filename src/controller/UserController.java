@@ -1,7 +1,7 @@
 package controller;
 
-import domain.user.Admin;
-import domain.user.Tenant;
+import models.user.Admin;
+import models.user.Tenant;
 import service.UserSvcInterface;
 
 import java.util.List;

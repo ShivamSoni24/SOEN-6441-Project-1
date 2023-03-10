@@ -1,6 +1,6 @@
 package repository;
 
-import domain.user.User;
+import models.user.User;
 
 import java.util.List;
 

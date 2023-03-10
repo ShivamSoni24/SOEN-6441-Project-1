@@ -3,8 +3,7 @@ import java.util.Scanner;
 
 import controller.PropertyController;
 import controller.UserController;
-import domain.property.Property;
-import domain.user.Tenant;
+import models.user.Tenant;
 import repository.PropertyRepoInterface;
 import repository.PropertyRepository;
 import repository.UserRepoInterface;
