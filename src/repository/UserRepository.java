@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 public class UserRepository implements UserRepoInterface {
-    private final Map<String, User> users;
+    private Map<String, User> users;
 
     public UserRepository() {
         this.users = new HashMap<>();

@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Map;
 
 public class PropertyRepository implements PropertyRepoInterface {
-    private final Map<String,Property> properties;
-    private final Map<String, List<String>> tenantInterest;
+    private Map<String,Property> properties;
+    private Map<String, List<String>> tenantInterest;
 
     public PropertyRepository() {
         properties = new HashMap<>();
@@ -64,11 +64,17 @@ public class PropertyRepository implements PropertyRepoInterface {
 
 
     @Override
-    public List<Property> getAll() {
+    public List<Property> getAll(Filter f) {
         List<Property> propertyList = new ArrayList<>();
 
         for(Property p: properties.values()){
-            propertyList.add(p.clone());
+            if(f.equals(Filter.RENTED) && p.isOccupied()){
+                propertyList.add(p.clone());
+            } else if(f.equals(Filter.VACANT) && !p.isOccupied()){
+                propertyList.add(p.clone());
+            } else {
+                propertyList.add(p.clone());
+            }
         }
 
         return propertyList;

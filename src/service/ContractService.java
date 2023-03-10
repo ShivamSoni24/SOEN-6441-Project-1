@@ -8,6 +8,8 @@ import repository.ContractRepoInterface;
 import repository.PropertyRepoInterface;
 import repository.UserRepoInterface;
 
+import java.util.List;
+
 public class ContractService implements ContractSvcInterface {
     private UserRepoInterface userRepo;
     private PropertyRepoInterface propertyRepo;
@@ -62,5 +64,9 @@ public class ContractService implements ContractSvcInterface {
     public Contract getContractBy(String propertyId, String tenantId) throws Exception{
         getPropertyBy(propertyId, tenantId);
         return contactRepo.getContract(propertyId, tenantId);
+    }
+
+    public List<Contract> getContracts() {
+        return contactRepo.getContracts();
     }
 }

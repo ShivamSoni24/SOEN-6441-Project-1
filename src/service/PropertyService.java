@@ -4,6 +4,7 @@ import models.property.Apartment;
 import models.property.Condo;
 import models.property.House;
 import models.property.Property;
+import repository.Filter;
 import repository.PropertyRepoInterface;
 
 import java.util.ArrayList;
@@ -26,10 +27,10 @@ public class PropertyService implements PropertySvcInterface{
     }
 
     @Override
-    public List<House> getHouses() {
+    public List<House> getHouses(Filter f) {
         List<House> houseList = new ArrayList<>();
 
-        for(Property p:propertyRepo.getAll()){
+        for(Property p:propertyRepo.getAll(f)){
             if(p instanceof House){
                 houseList.add((House) p);
             }
@@ -39,10 +40,10 @@ public class PropertyService implements PropertySvcInterface{
     }
 
     @Override
-    public List<Condo> getCondos() {
+    public List<Condo> getCondos(Filter f) {
         List<Condo> condoList = new ArrayList<>();
 
-        for(Property p:propertyRepo.getAll()){
+        for(Property p:propertyRepo.getAll(f)){
             if(p instanceof Condo){
                 condoList.add((Condo) p);
             }
@@ -52,10 +53,10 @@ public class PropertyService implements PropertySvcInterface{
     }
 
     @Override
-    public List<Apartment> getApartments() {
+    public List<Apartment> getApartments(Filter f) {
         List<Apartment> apartmentList = new ArrayList<>();
 
-        for(Property p:propertyRepo.getAll()){
+        for(Property p:propertyRepo.getAll(f)){
             if(p instanceof Apartment){
                 apartmentList.add((Apartment) p);
             }
@@ -65,8 +66,8 @@ public class PropertyService implements PropertySvcInterface{
     }
 
     @Override
-    public List<Property> getProperties() {
-        return propertyRepo.getAll();
+    public List<Property> getProperties(Filter f) {
+        return propertyRepo.getAll(f);
     }
 
     @Override

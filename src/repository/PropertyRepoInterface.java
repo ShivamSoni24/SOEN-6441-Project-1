@@ -13,5 +13,5 @@ public interface PropertyRepoInterface {
     Property getProperty(String id);
     boolean addInterest(String propertyId, String tenantId);
     List<String> getInterestedTenants(String propertyId);
-    List<Property> getAll();
+    List<Property> getAll(Filter f);
 }

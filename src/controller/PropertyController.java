@@ -4,6 +4,7 @@ import models.property.Apartment;
 import models.property.Condo;
 import models.property.House;
 import models.property.Property;
+import repository.Filter;
 import service.PropertySvcInterface;
 
 import java.util.List;
@@ -33,17 +34,17 @@ public class PropertyController {
         return propertySvc.add(c);
     }
 
-    public List<Condo> getAllCondos(){
-       return propertySvc.getCondos();
+    public List<Condo> getAllCondos(Filter f){
+       return propertySvc.getCondos(f);
     }
-    public List<House> getAllHouses(){
-        return propertySvc.getHouses();
+    public List<House> getAllHouses(Filter f){
+        return propertySvc.getHouses(f);
     }
-    public List<Apartment> getAllApartments(){
-        return propertySvc.getApartments();
+    public List<Apartment> getAllApartments(Filter f){
+        return propertySvc.getApartments(f);
     }
 
-    public List<Property> getAllProperties(){
-        return propertySvc.getProperties();
+    public List<Property> getAllProperties(Filter f){
+        return propertySvc.getProperties(f);
     }
 }

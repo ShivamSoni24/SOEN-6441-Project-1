@@ -4,6 +4,7 @@ import models.Contract;
 import service.ContractSvcInterface;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ContractController {
     private ContractSvcInterface contractSvc;
@@ -14,6 +15,10 @@ public class ContractController {
     public String rentUnit(String tenantId, String propertyId, LocalDate endDate, double monthlyRate) throws Exception{
         Contract c = new Contract(tenantId, propertyId, endDate, monthlyRate);
         return contractSvc.createContract(c);
+    }
+
+    public List<Contract> getLeases(){
+        return contractSvc.getContracts();
     }
 
 }

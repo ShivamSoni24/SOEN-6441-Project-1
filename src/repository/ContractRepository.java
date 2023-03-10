@@ -2,11 +2,13 @@ package repository;
 
 import models.Contract;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ContractRepository implements ContractRepoInterface{
-    private final Map<String,Contract> contracts;
+    private Map<String,Contract> contracts;
 
     public ContractRepository() {
         this.contracts = new HashMap<>();
@@ -44,5 +46,15 @@ public class ContractRepository implements ContractRepoInterface{
     @Override
     public boolean isContractExists(String id) {
         return contracts.containsKey(id);
+    }
+
+    @Override
+    public List<Contract> getContracts() {
+        List<Contract> contractList = new ArrayList<>();
+        for(Contract c: contracts.values()){
+            contractList.add(c.clone());
+        }
+
+        return contractList;
     }
 }
