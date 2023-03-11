@@ -28,4 +28,12 @@ public class ContractController {
     public void registerInterest(String propertyId, String tenantId) throws Exception{
         contractSvc.addInterest(propertyId, tenantId);
     }
+
+    public boolean getRentStatus(String propertyId, String tenantId, int month, int year) throws Exception {
+        return contractSvc.getRentStatus(propertyId, tenantId, month, year);
+    }
+
+    public void setRentStatus(String propertyId, String tenantId, int month, int year) throws Exception {
+        contractSvc.setRentStatus(propertyId, tenantId, month, year);
+    }
 }

@@ -4,6 +4,7 @@ import models.user.User;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.HashSet;
 
 public class Contract implements Cloneable{
     private static int counter = 0;
@@ -13,6 +14,7 @@ public class Contract implements Cloneable{
     LocalDate startDate;
     LocalDate endDate;
     double monthlyRate;
+    HashSet<String> rentStatus;
 
     public Contract(String tenantId, String propertyId, LocalDate endDate, double monthlyRate) {
         this.id = String.valueOf(++counter);
@@ -21,6 +23,7 @@ public class Contract implements Cloneable{
         this.startDate = LocalDate.now();
         this.endDate = endDate;
         this.monthlyRate = monthlyRate;
+        this.rentStatus = new HashSet<>();
     }
 
     public String getId() {
@@ -65,6 +68,16 @@ public class Contract implements Cloneable{
 
     public void setMonthlyRate(double monthlyRate) {
         this.monthlyRate = monthlyRate;
+    }
+
+    public boolean getRentStatus(int month, int year) {
+        return rentStatus.contains(month+"-"+year);
+    }
+
+    public boolean setRentStatus(int month, int year) {
+        if (rentStatus.contains(month+"-"+year)) return false;
+        rentStatus.add(month+"-"+year);
+        return true;
     }
 
     @Override

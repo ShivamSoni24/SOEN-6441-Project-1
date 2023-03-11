@@ -12,4 +12,6 @@ public interface ContractSvcInterface {
     Contract getContractBy(String propertyId, String tenantId) throws Exception;
     List<Contract> getContracts();
     void addInterest(String propertyId, String tenantId) throws Exception;
+    boolean getRentStatus(String propertyId, String tenantId, int month, int year) throws Exception;
+    void setRentStatus(String propertyId, String tenantId, int month, int year) throws Exception;
 }

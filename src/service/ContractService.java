@@ -13,12 +13,12 @@ import java.util.List;
 public class ContractService implements ContractSvcInterface {
     private UserRepoInterface userRepo;
     private PropertyRepoInterface propertyRepo;
-    private ContractRepoInterface contactRepo;
+    private ContractRepoInterface contractRepo;
 
     public ContractService(UserRepoInterface userRepo, PropertyRepoInterface propertyRepo, ContractRepoInterface contractRepo) {
         this.propertyRepo = propertyRepo;
         this.userRepo = userRepo;
-        this.contactRepo = contractRepo;
+        this.contractRepo = contractRepo;
     }
 
     private Property getPropertyAndCheckUser(String propertyId, String tenantId) throws Exception{
@@ -43,7 +43,7 @@ public class ContractService implements ContractSvcInterface {
         // set property as occupied as we add a contract
         propertyRepo.updateProperty(c.getPropertyId(), p);
 
-        return contactRepo.addContract(c);
+        return contractRepo.addContract(c);
     }
 
     public boolean deleteContract(String propertyId, String tenantId) throws Exception {
@@ -52,7 +52,7 @@ public class ContractService implements ContractSvcInterface {
             throw new Exception("property not found");
         }
 
-        Contract c = contactRepo.getContract(propertyId, tenantId);
+        Contract c = contractRepo.getContract(propertyId, tenantId);
         if(c==null) {
             throw new Exception("contract not found");
         }
@@ -63,20 +63,20 @@ public class ContractService implements ContractSvcInterface {
 
         propertyRepo.notifyAll(propertyId);
 
-        return contactRepo.deleteContract(c.getId());
+        return contractRepo.deleteContract(c.getId());
     }
 
     public Contract getContractBy(String id) {
-        return contactRepo.getContract(id);
+        return contractRepo.getContract(id);
     }
 
     public Contract getContractBy(String propertyId, String tenantId) throws Exception{
         getPropertyAndCheckUser(propertyId, tenantId);
-        return contactRepo.getContract(propertyId, tenantId);
+        return contractRepo.getContract(propertyId, tenantId);
     }
 
     public List<Contract> getContracts() {
-        return contactRepo.getContracts();
+        return contractRepo.getContracts();
     }
 
     public void addInterest(String propertyId, String tenantId) throws Exception {
@@ -91,5 +91,17 @@ public class ContractService implements ContractSvcInterface {
         }
 
         propertyRepo.addInterest(propertyId, (Tenant) u);
+    }
+
+    public boolean getRentStatus(String propertyId, String tenantId, int month, int year) throws Exception {
+        Contract c = this.getContractBy(propertyId, tenantId);
+        return c.getRentStatus(month, year);
+    }
+
+    public void setRentStatus(String propertyId, String tenantId, int month, int year) throws Exception {
+        Contract c = this.getContractBy(propertyId, tenantId);
+
+        c.setRentStatus(month, year);
+        contractRepo.updateContract(c);
     }
 }

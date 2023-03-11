@@ -60,7 +60,9 @@ public class Main {
             System.out.println("8. Display all leases");
             System.out.println("9. Cancel contract");
             System.out.println("10. Enter tenant interest");
-            System.out.println("11. Exit");
+            System.out.println("11. Get rent status");
+            System.out.println("12. Pay rent");
+            System.out.println("13. Exit");
             System.out.println("Please enter your choice: ");
             choice = sc.nextInt();
 
@@ -204,12 +206,54 @@ public class Main {
                     }
                 }
                 break;
-                case 11:
+                case 11: {
+                    System.out.println("Enter tenant ID");
+                    String tenantId = sc.nextLine();
+                    System.out.println("Enter property ID");
+                    String propertyId = sc.nextLine();
+                    System.out.println("Enter month for which you want to check the rent status");
+                    int month = Integer.parseInt(sc.nextLine());
+                    System.out.println("Enter year for which you want to check the rent status");
+                    int year = Integer.parseInt(sc.nextLine());
+
+                    try {
+                        boolean rentStatus = contractController.getRentStatus(propertyId, tenantId, month, year);
+                        System.out.println(rentStatus ? "Rent is paid" : "Rent is not paid");
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                
+                break;
+                case 12: {
+                    System.out.println("Enter tenant ID");
+                    String tenantId = sc.nextLine();
+                    System.out.println("Enter property ID");
+                    String propertyId = sc.nextLine();
+                    System.out.println("Enter month for which you want pay the rent");
+                    int month = Integer.parseInt(sc.nextLine());
+                    System.out.println("Enter year for which you want to pay the rent");
+                    int year = Integer.parseInt(sc.nextLine());
+
+                    try {
+                        boolean rentStatus = contractController.getRentStatus(propertyId, tenantId, month, year);
+                        if (rentStatus) {
+                            System.out.println("Rent is already paid");
+                        } else {
+                            contractController.setRentStatus(propertyId, tenantId, month, year);
+                            System.out.println("Rent paid successfully");
+                        }
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                break;
+                case 13:
                     System.out.println("Good bye...");
                 break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-        } while (choice != 11);
+        } while (choice != 13);
     }
 }

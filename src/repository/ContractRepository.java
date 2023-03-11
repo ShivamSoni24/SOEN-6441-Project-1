@@ -34,6 +34,13 @@ public class ContractRepository implements ContractRepoInterface{
     }
 
     @Override
+    public boolean updateContract(Contract c) {
+        if (!isContractExists(c.getId())) return false;
+        contracts.put(c.getId(), c);
+        return true;
+    }
+
+    @Override
     public Contract getContract(String propertyId, String tenantId){
         for(Map.Entry<String, Contract> e:contracts.entrySet()){
             if(e.getValue().getPropertyId().equals(propertyId) && e.getValue().getTenantId().equals(tenantId)){

@@ -11,4 +11,5 @@ public interface ContractRepoInterface {
     Contract getContract(String propertyId, String tenantId);
     boolean isContractExists(String id);
     List<Contract> getContracts();
+    boolean updateContract(Contract c);
 }
