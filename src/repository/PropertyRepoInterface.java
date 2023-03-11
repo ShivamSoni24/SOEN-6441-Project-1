@@ -1,7 +1,7 @@
 package repository;
 
-import models.Contract;
 import models.property.Property;
+import models.user.Tenant;
 
 import java.util.List;
 
@@ -11,7 +11,7 @@ public interface PropertyRepoInterface {
     void updateProperty(String id, Property p);
     boolean deleteProperty(String id);
     Property getProperty(String id);
-    boolean addInterest(String propertyId, String tenantId);
-    List<String> getInterestedTenants(String propertyId);
+    void addInterest(String propertyId, Tenant t);
     List<Property> getAll(Filter f);
+    void notifyAll(String propertyId);
 }

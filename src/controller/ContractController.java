@@ -25,4 +25,7 @@ public class ContractController {
         return contractSvc.deleteContract(propertyId, tenantId);
     }
 
+    public void registerInterest(String propertyId, String tenantId) throws Exception{
+        contractSvc.addInterest(propertyId, tenantId);
+    }
 }

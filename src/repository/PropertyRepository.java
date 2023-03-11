@@ -2,6 +2,7 @@ package repository;
 
 import models.Contract;
 import models.property.Property;
+import models.user.Tenant;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,11 +11,9 @@ import java.util.Map;
 
 public class PropertyRepository implements PropertyRepoInterface {
     private Map<String,Property> properties;
-    private Map<String, List<String>> tenantInterest;
 
     public PropertyRepository() {
         properties = new HashMap<>();
-        tenantInterest = new HashMap<>();
     }
 
     @Override
@@ -43,25 +42,10 @@ public class PropertyRepository implements PropertyRepoInterface {
         return properties.get(id).clone();
     }
     @Override
-    public boolean addInterest(String propertyId, String tenantId) {
-        List<String> temp;
-        if(!tenantInterest.containsKey(propertyId)){
-            temp = new ArrayList<>();
-        } else {
-            temp = tenantInterest.get(propertyId);
-            if(temp.contains(tenantId)){
-                return false;
-            }
-        }
-        temp.add(tenantId);
-        tenantInterest.put(propertyId, temp);
-        return true;
+    public void addInterest(String propertyId, Tenant t) {
+        Property p = properties.get(propertyId);
+        p.addListener(t);
     }
-    @Override
-    public List<String> getInterestedTenants(String propertyId){
-        return tenantInterest.get(propertyId);
-    }
-
 
     @Override
     public List<Property> getAll(Filter f) {
@@ -78,5 +62,12 @@ public class PropertyRepository implements PropertyRepoInterface {
         }
 
         return propertyList;
+    }
+
+    @Override
+    public void notifyAll(String propertyId) {
+        Property p = properties.get(propertyId);
+
+        p.notifyListeners();
     }
 }

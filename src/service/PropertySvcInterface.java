@@ -15,4 +15,6 @@ public interface PropertySvcInterface {
     List<Condo> getCondos(Filter f);
     List<Apartment> getApartments(Filter f);
     List<Property> getProperties(Filter f);
+
+
 }

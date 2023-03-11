@@ -3,8 +3,9 @@ package models;
 import models.user.User;
 
 import java.time.LocalDate;
+import java.util.Arrays;
 
-public class Contract {
+public class Contract implements Cloneable{
     private static int counter = 0;
     String id;
     String tenantId;
@@ -65,11 +66,26 @@ public class Contract {
     public void setMonthlyRate(double monthlyRate) {
         this.monthlyRate = monthlyRate;
     }
+
+    @Override
     public Contract clone() {
         try {
             return (Contract) super.clone();
         } catch (CloneNotSupportedException e) {
+            System.out.println(e.getMessage());
             throw new AssertionError();
         }
+    }
+
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "id='" + id + '\'' +
+                ", tenantId='" + tenantId + '\'' +
+                ", propertyId='" + propertyId + '\'' +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", monthlyRate=" + monthlyRate +
+                '}';
     }
 }

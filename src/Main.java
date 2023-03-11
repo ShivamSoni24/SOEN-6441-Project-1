@@ -10,6 +10,12 @@ import models.user.Tenant;
 import repository.*;
 import service.*;
 
+// 1. create property on p1
+// 2. create tenant x 2
+// 3. create contract with t1 on p1
+// 4. t2 interested in p1
+// 5. terminate contract
+
 public class Main {
     // Injecting dependencies
     public static UserRepoInterface userRepo = new UserRepository();
@@ -60,7 +66,8 @@ public class Main {
             System.out.println("8. Display all leases");
             System.out.println("9. Create contract");
             System.out.println("10. Cancel contract");
-            System.out.println("11. Exit");
+            System.out.println("11. Enter tenant interest");
+            System.out.println("12. Exit");
             System.out.println("Please enter your choice: ");
             choice = sc.nextInt();
 
@@ -142,6 +149,7 @@ public class Main {
                     List<Tenant> tenants = userController.getTenants();
                     System.out.println(tenants);
                 }
+                break;
                 case 6: {
                     System.out.println("--------------List of rented Properties--------------");
                     listProperties(sc, Filter.RENTED);
@@ -191,7 +199,20 @@ public class Main {
                 }
                     
                 break;
-                case 11:
+                case 11: {
+                    System.out.println("Enter tenant ID");
+                    String tenantId = sc.nextLine();
+                    System.out.println("Enter property ID");
+                    String propertyId = sc.nextLine();
+
+                    try {
+                        contractController.registerInterest(propertyId, tenantId);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                break;
+                case 12:
                     System.out.println("Good bye...");
                 break;
                 default:
