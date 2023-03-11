@@ -58,16 +58,15 @@ public class Main {
         do {
             System.out.println("1. Add a property");
             System.out.println("2. Add a tenant");
-            System.out.println("3. Rent a unit");
+            System.out.println("3. Create contract");
             System.out.println("4. Display properties");
             System.out.println("5. Display tenants");
             System.out.println("6. Display rented units");
             System.out.println("7. Display vacant units");
             System.out.println("8. Display all leases");
-            System.out.println("9. Create contract");
-            System.out.println("10. Cancel contract");
-            System.out.println("11. Enter tenant interest");
-            System.out.println("12. Exit");
+            System.out.println("9. Cancel contract");
+            System.out.println("10. Enter tenant interest");
+            System.out.println("11. Exit");
             System.out.println("Please enter your choice: ");
             choice = sc.nextInt();
 
@@ -139,6 +138,25 @@ public class Main {
                     System.out.println("Tenant added with ID: " + tenantId);
                 }
                 break;
+                case 3:{
+                    System.out.println("Enter tenant ID");
+                    String tenantId = sc.nextLine();
+                    System.out.println("Enter property ID");
+                    String propertyId = sc.nextLine();
+
+                    System.out.println("Enter duration of contract in months");
+                    int months = Integer.parseInt(sc.nextLine());
+                    LocalDate endDate = LocalDate.now().plusMonths(months);
+
+                    System.out.println("Enter monthly rate");
+                    double monthlyRate = Double.parseDouble(sc.nextLine());
+                    try {
+                        contractController.rentUnit(tenantId, propertyId, endDate, monthlyRate);
+                    } catch(Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                break;
                 case 4: {
                     System.out.println("--------------List of Properties--------------");
                     listProperties(sc, Filter.ALL);
@@ -172,34 +190,14 @@ public class Main {
                     System.out.println("Enter property ID");
                     String propertyId = sc.nextLine();
 
-                    System.out.println("Enter duration of contract in months");
-                    int months = Integer.parseInt(sc.nextLine());
-                    LocalDate endDate = LocalDate.now().plusMonths(months);
-                    
-                    System.out.println("Enter monthly rate");
-                    double monthlyRate = Double.parseDouble(sc.nextLine());
-                    try {
-                        contractController.rentUnit(tenantId, propertyId, endDate, monthlyRate);
-                    } catch(Exception e) {
-                        System.out.println(e.getMessage());
-                    }
-                }
-                break;
-                case 10: {
-                    System.out.println("Enter tenant ID");
-                    String tenantId = sc.nextLine();
-                    System.out.println("Enter property ID");
-                    String propertyId = sc.nextLine();
-
                     try {
                         contractController.terminateContract(propertyId, tenantId);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
                 }
-                    
                 break;
-                case 11: {
+                case 10: {
                     System.out.println("Enter tenant ID");
                     String tenantId = sc.nextLine();
                     System.out.println("Enter property ID");
@@ -212,12 +210,12 @@ public class Main {
                     }
                 }
                 break;
-                case 12:
+                case 11:
                     System.out.println("Good bye...");
                 break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-        } while (choice != 12);
+        } while (choice != 11);
     }
 }
