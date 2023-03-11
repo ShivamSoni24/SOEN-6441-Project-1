@@ -1,7 +1,15 @@
 package models.property;
 
-public abstract class Property implements Cloneable{
+import observer.Observer;
+import observer.Subject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public abstract class Property implements Cloneable, Subject {
     private static int counter = 0;
+
+    private List<Observer> interestedTenants;
     String id;
     String streetName;
     String city;
@@ -18,6 +26,7 @@ public abstract class Property implements Cloneable{
         this.province = province;
         this.country = country;
         this.isOccupied = false;
+        this.interestedTenants = new ArrayList<>();
     }
     public String getId() {
         return id;
@@ -77,6 +86,25 @@ public abstract class Property implements Cloneable{
             return (Property) super.clone();
         } catch (CloneNotSupportedException e) {
             throw new AssertionError();
+        }
+    }
+
+    @Override
+    public void addListener(Observer o) {
+        if(!interestedTenants.contains(o)){
+            interestedTenants.add(o);
+        }
+    }
+
+    @Override
+    public void removeListener(Observer o) {
+        interestedTenants.remove(o);
+    }
+
+    @Override
+    public void notifyListeners() {
+        for(Observer o:interestedTenants){
+            o.update(this);
         }
     }
 }

@@ -21,7 +21,7 @@ public class ContractService implements ContractSvcInterface {
         this.contactRepo = contractRepo;
     }
 
-    private Property getPropertyBy(String propertyId, String tenantId) throws Exception{
+    private Property getPropertyAndCheckUser(String propertyId, String tenantId) throws Exception{
         Property p = propertyRepo.getProperty(propertyId);
         if (p.isOccupied()) {
             throw new Exception("property is already occupied");
@@ -36,7 +36,7 @@ public class ContractService implements ContractSvcInterface {
     }
 
     public String createContract(Contract c) throws Exception {
-        Property p =  getPropertyBy(c.getPropertyId(), c.getPropertyId());
+        Property p =  getPropertyAndCheckUser(c.getPropertyId(), c.getPropertyId());
 
         p.setOccupied(true);
 
@@ -46,13 +46,19 @@ public class ContractService implements ContractSvcInterface {
         return contactRepo.addContract(c);
     }
 
-    public boolean deleteContract(Contract c) throws Exception {
-        Property p =  getPropertyBy(c.getPropertyId(), c.getPropertyId());
+    public boolean deleteContract(String propertyId, String tenantId) throws Exception {
+        Property p = getPropertyAndCheckUser(propertyId, tenantId);
 
-        p.setOccupied(false);
+        Contract c = contactRepo.getContract(propertyId, tenantId);
+        if(c==null) {
+            throw new Exception("contract not found");
+        }
 
         // set property as not occupied as we add a contract
-        propertyRepo.updateProperty(c.getPropertyId(), p);
+        p.setOccupied(false);
+        propertyRepo.updateProperty(propertyId, p);
+
+        p.notifyListeners();
 
         return contactRepo.deleteContract(c.getId());
     }
@@ -62,7 +68,7 @@ public class ContractService implements ContractSvcInterface {
     }
 
     public Contract getContractBy(String propertyId, String tenantId) throws Exception{
-        getPropertyBy(propertyId, tenantId);
+        getPropertyAndCheckUser(propertyId, tenantId);
         return contactRepo.getContract(propertyId, tenantId);
     }
 

@@ -1,6 +1,9 @@
 package models.user;
 
-public class Tenant extends User {
+import models.property.Property;
+import observer.Observer;
+
+public class Tenant extends User implements Observer {
 
     public Tenant(String name, String email, String phoneNo) {
         super(name, email, phoneNo);
@@ -16,5 +19,10 @@ public class Tenant extends User {
                 ", email='" + email + '\'' +
                 ", phoneNo='" + phoneNo + '\'' +
                 '}';
+    }
+
+    @Override
+    public void update(Property p) {
+        System.out.println(p);
     }
 }

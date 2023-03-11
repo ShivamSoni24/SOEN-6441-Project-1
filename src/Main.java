@@ -33,18 +33,14 @@ public class Main {
             System.out.println("4. List all");
             propertyType = Integer.parseInt(sc.nextLine());
             switch (propertyType) {
-                case 1 -> {
+                case 1 ->
                     System.out.println(propertyController.getAllApartments(f));
-                }
-                case 2 -> {
+                case 2 ->
                     System.out.println(propertyController.getAllCondos(f));
-                }
-                case 3 -> {
+                case 3 ->
                     System.out.println(propertyController.getAllHouses(f));
-                }
-                case 4 -> {
+                case 4 ->
                     System.out.println(propertyController.getAllProperties(f));
-                }
             }
         }
     }

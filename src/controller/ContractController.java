@@ -21,4 +21,8 @@ public class ContractController {
         return contractSvc.getContracts();
     }
 
+    public boolean terminateContract(String propertyId, String tenantId) throws Exception{
+        return contractSvc.deleteContract(propertyId, tenantId);
+    }
+
 }
