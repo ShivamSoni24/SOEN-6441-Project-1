@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Scanner;
 
@@ -57,7 +58,9 @@ public class Main {
             System.out.println("6. Display rented units");
             System.out.println("7. Display vacant units");
             System.out.println("8. Display all leases");
-            System.out.println("9. Exit");
+            System.out.println("9. Create contract");
+            System.out.println("10. Cancel contract");
+            System.out.println("11. Exit");
             System.out.println("Please enter your choice: ");
             choice = sc.nextInt();
 
@@ -155,12 +158,45 @@ public class Main {
                     System.out.println(contracts);
                 }
                 break;
-                case 9:
+                case 9: {
+                    System.out.println("Enter tenant ID");
+                    String tenantId = sc.nextLine();
+                    System.out.println("Enter property ID");
+                    String propertyId = sc.nextLine();
+
+                    System.out.println("Enter duration of contract in months");
+                    int months = Integer.parseInt(sc.nextLine());
+                    LocalDate endDate = LocalDate.now().plusMonths(months);
+                    
+                    System.out.println("Enter monthly rate");
+                    double monthlyRate = Double.parseDouble(sc.nextLine());
+                    try {
+                        contractController.rentUnit(tenantId, propertyId, endDate, monthlyRate);
+                    } catch(Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                break;
+                case 10: {
+                    System.out.println("Enter tenant ID");
+                    String tenantId = sc.nextLine();
+                    System.out.println("Enter property ID");
+                    String propertyId = sc.nextLine();
+
+                    try {
+                        contractController.terminateContract(propertyId, tenantId);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                }
+                    
+                break;
+                case 11:
                     System.out.println("Good bye...");
                 break;
                 default:
                     System.out.println("Invalid choice. Please try again.");
             }
-        } while (choice != 9);
+        } while (choice != 12);
     }
 }
