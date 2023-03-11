@@ -10,12 +10,6 @@ import models.user.Tenant;
 import repository.*;
 import service.*;
 
-// 1. create property on p1
-// 2. create tenant x 2
-// 3. create contract with t1 on p1
-// 4. t2 interested in p1
-// 5. terminate contract
-
 public class Main {
     // Injecting dependencies
     public static UserRepoInterface userRepo = new UserRepository();
