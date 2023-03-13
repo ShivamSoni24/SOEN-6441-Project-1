@@ -1,15 +1,11 @@
 package Test;
 
 import Main.models.Contract;
-import org.junit.BeforeClass;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.Test;
-import Test.TestSuite.*;
 
 import java.time.LocalDate;
 
 import static Test.TestSuite.contractController;
-import static Test.TestSuite.userController;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ContractControllerTest {

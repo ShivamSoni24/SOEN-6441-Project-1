@@ -23,7 +23,8 @@ public class PropertyControllerTest {
         assertTrue(propertyController.getAllHouses(Filter.ALL).get(0) instanceof House);
     }
 
+    @Test
     public void getAllProperties() {
-        assertFalse(propertyController.getAllProperties(Filter.ALL).get(0) instanceof Property);
+        assertTrue(propertyController.getAllProperties(Filter.ALL).get(0) instanceof Property);
     }
 }

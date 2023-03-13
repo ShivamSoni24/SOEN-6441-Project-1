@@ -14,7 +14,9 @@ import org.junit.runners.Suite.SuiteClasses;
 import java.time.LocalDate;
 
 @RunWith(Suite.class)
-@SuiteClasses({ContractControllerTest.class, PropertyControllerTest.class, UserControllerTest.class})
+@SuiteClasses({ContractControllerTest.class, PropertyControllerTest.class, UserControllerTest.class,
+        ContractServiceTest.class, PropertyServiceTest.class, UserServiceTest.class,
+        ContractRepositoryTest.class, PropertyRepositoryTest.class, UserRepositoryTest.class})
 public class TestSuite {
 
     private static boolean isSetupDone = false;
