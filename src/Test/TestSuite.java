@@ -64,6 +64,9 @@ public class TestSuite {
             contractController.rentUnit("3", "3", LocalDate.of(2023, 6, 26), 1690);
             contractController.rentUnit("6", "6", LocalDate.of(2023, 4, 21), 2600);
 
+            // Adding the admin (id = 7)
+            userController.addAdmin("The Boys Company", "TheBoys@gmail.com", "1759324860");
+
             // Case 1: Test rent status
             contractController.setRentStatus("1", "1", 2, 2023);
 

@@ -1,5 +1,6 @@
 package Test;
 
+import Main.models.user.Admin;
 import Main.models.user.Tenant;
 import Main.models.user.User;
 import org.junit.Test;
@@ -16,6 +17,6 @@ public class UserControllerTest {
 
     @Test
     public void getAdmins() {
-        assertFalse(userController.getAdmins() instanceof User);
+        assertTrue(userController.getAdmins().get(0) instanceof Admin);
     }
 }
