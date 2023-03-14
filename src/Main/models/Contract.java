@@ -87,15 +87,26 @@ public class Contract implements Cloneable{
         }
     }
 
+//    @Override
+//    public String toString() {
+//        return "Contract{" +
+//                "id='" + id + '\'' +
+//                ", tenantId='" + tenantId + '\'' +
+//                ", propertyId='" + propertyId + '\'' +
+//                ", startDate=" + startDate +
+//                ", endDate=" + endDate +
+//                ", monthlyRate=" + monthlyRate +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Contract{" +
-                "id='" + id + '\'' +
-                ", tenantId='" + tenantId + '\'' +
-                ", propertyId='" + propertyId + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", monthlyRate=" + monthlyRate +
-                '}';
+        return "Contract{\nContract ID: " + id +
+                "\ntenantId = " + tenantId +
+                "\npropertyId = " + propertyId +
+                "\nContract startDate = " + startDate +
+                "\nContract endDate = " + endDate +
+                "\nmonthlyRate = " + monthlyRate +
+                "}";
     }
 }

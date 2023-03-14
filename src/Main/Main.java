@@ -29,11 +29,12 @@ public class Main {
     private static void listProperties(Scanner sc, Filter f){
         int propertyType = -1;
         while (propertyType < 0) {
-            System.out.println("Please select from below option");
+            System.out.println("\nPlease select from below option");
             System.out.println("1. List apartments");
             System.out.println("2. List condos");
             System.out.println("3. List houses");
             System.out.println("4. List all");
+            System.out.print("Enter your choice: ");
             propertyType = Integer.parseInt(sc.nextLine());
             switch (propertyType) {
                 case 1 ->
@@ -52,7 +53,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int choice;
         do {
-            System.out.println("1. Add a property");
+            System.out.println("\n1. Add a property");
             System.out.println("2. Add a tenant");
             System.out.println("3. Create contract");
             System.out.println("4. Display properties");
@@ -65,88 +66,89 @@ public class Main {
             System.out.println("11. Get rent status");
             System.out.println("12. Pay rent");
             System.out.println("13. Exit");
-            System.out.println("Please enter your choice: ");
+            System.out.print("Please enter your choice: ");
             choice = sc.nextInt();
 
             sc.nextLine();
 
             switch (choice) {
                 case 1: {
-                    System.out.println("Enter street name");
+                    System.out.print("\nEnter street name: ");
                     String streetName = sc.nextLine();
-                    System.out.println("Enter city");
+                    System.out.print("Enter city: ");
                     String city = sc.nextLine();
-                    System.out.println("Enter postal code");
+                    System.out.print("Enter postal code: ");
                     String postalCode = sc.nextLine();
-                    System.out.println("Enter province");
+                    System.out.print("Enter province: ");
                     String province = sc.nextLine();
-                    System.out.println("Enter country");
+                    System.out.print("Enter country: ");
                     String country = sc.nextLine();
                     int propertyType = -1;
                     String propertyId;
                     int noOfBedrooms = 0, noOfBathrooms = 0;
                     double squareFootArea = 0.0;
                     while (propertyType < 0 || propertyType > 3) {
-                        System.out.println("Which property do you want to add?");
+                        System.out.println("\nWhich property do you want to add?");
                         System.out.println("1. Apartment");
                         System.out.println("2. Condo");
                         System.out.println("3. House");
+                        System.out.print("Enter your choice: ");
                         propertyType = Integer.parseInt(sc.nextLine());
                     }
                     if (propertyType==1 || propertyType==2){
-                        System.out.println("Enter no of bedrooms");
+                        System.out.print("\nEnter no of bedrooms: ");
                         noOfBedrooms = Integer.parseInt(sc.nextLine());
-                        System.out.println("Enter no of bathrooms");
+                        System.out.print("Enter no of bathrooms: ");
                         noOfBathrooms = Integer.parseInt(sc.nextLine());
-                        System.out.println("Enter square foot area");
+                        System.out.print("Enter square foot area: ");
                         squareFootArea = Double.parseDouble(sc.nextLine());
                     }
                     switch (propertyType) {
                         case 1 -> {
-                            System.out.println("Enter apartment number");
+                            System.out.print("Enter apartment number: ");
                             int aptNo = Integer.parseInt(sc.nextLine());
                             propertyId = propertyController.addApartment(streetName, city, postalCode, province, country,
                                     aptNo, noOfBedrooms, noOfBathrooms, squareFootArea);
-                            System.out.println("Apartment added with ID: " + propertyId);
+                            System.out.println("\nApartment added with property ID: " + propertyId);
                         }
                         case 2 -> {
-                            System.out.println("Enter condo number");
+                            System.out.print("Enter condo number: ");
                             int condoNo = Integer.parseInt(sc.nextLine());
                             propertyId = propertyController.addCondo(streetName, city, postalCode, province, country,
                                     condoNo, noOfBedrooms, noOfBathrooms, squareFootArea);
-                            System.out.println("Apartment added with ID: " + propertyId);
+                            System.out.println("\nCondo added with property ID: " + propertyId);
                         }
                         case 3 -> {
-                            System.out.println("Enter street number");
+                            System.out.print("Enter street number: ");
                             int streetNo = Integer.parseInt(sc.nextLine());
                             propertyId = propertyController.addHouse(streetName, city, postalCode, province, country, streetNo);
-                            System.out.println("Apartment added with ID: " + propertyId);
+                            System.out.println("\nHouse added with property ID: " + propertyId);
                         }
                     }
                 }
                 break;
                 case 2: {
-                    System.out.println("Enter name");
+                    System.out.print("\nEnter name: ");
                     String tenantName = sc.nextLine();
-                    System.out.println("Enter email");
+                    System.out.print("Enter email: ");
                     String tenantEmail = sc.nextLine();
-                    System.out.println("Enter phone number");
+                    System.out.print("Enter phone number: ");
                     String phoneNo = sc.nextLine();
                     String tenantId = userController.addTenant(tenantName, tenantEmail, phoneNo);
-                    System.out.println("Tenant added with ID: " + tenantId);
+                    System.out.println("\nTenant added with user ID: " + tenantId);
                 }
                 break;
                 case 3:{
-                    System.out.println("Enter tenant ID");
+                    System.out.print("\nEnter tenant ID: ");
                     String tenantId = sc.nextLine();
-                    System.out.println("Enter property ID");
+                    System.out.print("Enter property ID: ");
                     String propertyId = sc.nextLine();
 
-                    System.out.println("Enter duration of contract in months");
+                    System.out.print("Enter duration of contract in months: ");
                     int months = Integer.parseInt(sc.nextLine());
                     LocalDate endDate = LocalDate.now().plusMonths(months);
 
-                    System.out.println("Enter monthly rate");
+                    System.out.print("Enter monthly rate: ");
                     double monthlyRate = Double.parseDouble(sc.nextLine());
                     try {
                         contractController.rentUnit(tenantId, propertyId, endDate, monthlyRate);
@@ -183,9 +185,9 @@ public class Main {
                 }
                 break;
                 case 9: {
-                    System.out.println("Enter tenant ID");
+                    System.out.print("\nEnter tenant ID: ");
                     String tenantId = sc.nextLine();
-                    System.out.println("Enter property ID");
+                    System.out.print("Enter property ID: ");
                     String propertyId = sc.nextLine();
 
                     try {
@@ -196,9 +198,9 @@ public class Main {
                 }
                 break;
                 case 10: {
-                    System.out.println("Enter tenant ID");
+                    System.out.print("\nEnter tenant ID: ");
                     String tenantId = sc.nextLine();
-                    System.out.println("Enter property ID");
+                    System.out.print("Enter property ID: ");
                     String propertyId = sc.nextLine();
 
                     try {
@@ -209,18 +211,18 @@ public class Main {
                 }
                 break;
                 case 11: {
-                    System.out.println("Enter tenant ID");
+                    System.out.print("\nEnter tenant ID: ");
                     String tenantId = sc.nextLine();
-                    System.out.println("Enter property ID");
+                    System.out.print("Enter property ID: ");
                     String propertyId = sc.nextLine();
-                    System.out.println("Enter month for which you want to check the rent status");
+                    System.out.print("Enter month for which you want to check the rent status: ");
                     int month = Integer.parseInt(sc.nextLine());
-                    System.out.println("Enter year for which you want to check the rent status");
+                    System.out.print("Enter year for which you want to check the rent status: ");
                     int year = Integer.parseInt(sc.nextLine());
 
                     try {
                         boolean rentStatus = contractController.getRentStatus(propertyId, tenantId, month, year);
-                        System.out.println(rentStatus ? "Rent is paid" : "Rent is not paid");
+                        System.out.println(rentStatus ? "\nRent is paid\n" : "\nRent is not paid\n");
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -228,22 +230,22 @@ public class Main {
                 
                 break;
                 case 12: {
-                    System.out.println("Enter tenant ID");
+                    System.out.print("\nEnter tenant ID: ");
                     String tenantId = sc.nextLine();
-                    System.out.println("Enter property ID");
+                    System.out.print("Enter property ID: ");
                     String propertyId = sc.nextLine();
-                    System.out.println("Enter month for which you want pay the rent");
+                    System.out.print("Enter month for which you want pay the rent: ");
                     int month = Integer.parseInt(sc.nextLine());
-                    System.out.println("Enter year for which you want to pay the rent");
+                    System.out.print("Enter year for which you want to pay the rent: ");
                     int year = Integer.parseInt(sc.nextLine());
 
                     try {
                         boolean rentStatus = contractController.getRentStatus(propertyId, tenantId, month, year);
                         if (rentStatus) {
-                            System.out.println("Rent is already paid");
+                            System.out.println("\nRent is already paid\n");
                         } else {
                             contractController.setRentStatus(propertyId, tenantId, month, year);
-                            System.out.println("Rent paid successfully");
+                            System.out.println("\nRent paid successfully\n");
                         }
                     } catch (Exception e) {
                         System.out.println(e.getMessage());

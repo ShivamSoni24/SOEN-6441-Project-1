@@ -5,13 +5,22 @@ public class Admin extends User{
         super(name, email, phoneNo);
     }
 
+//    @Override
+//    public String toString() {
+//        return "Admin{" +
+//                "id='" + id + '\'' +
+//                ", name='" + name + '\'' +
+//                ", email='" + email + '\'' +
+//                ", phoneNo='" + phoneNo + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Admin{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNo='" + phoneNo + '\'' +
-                '}';
+        return "Admin{\nAdmin ID: " + id + '\'' +
+                "\nname = " + name +
+                "\nemail = " + email +
+                "\nphoneNo = " + phoneNo +
+                "}";
     }
 }

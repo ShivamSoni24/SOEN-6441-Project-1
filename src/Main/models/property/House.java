@@ -15,17 +15,26 @@ public class House extends Property{
         this.streetNo = streetNo;
     }
 
+//    @Override
+//    public String toString() {
+//        return "House{" +
+//                "id='" + id +
+//                ", streetNo=" + streetNo + '\'' +
+//                ", streetName='" + streetName + '\'' +
+//                ", city='" + city + '\'' +
+//                ", postalCode='" + postalCode + '\'' +
+//                ", province='" + province + '\'' +
+//                ", country='" + country + '\'' +
+//                ", isOccupied=" + isOccupied +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "House{" +
-                "id='" + id +
-                ", streetNo=" + streetNo + '\'' +
-                ", streetName='" + streetName + '\'' +
-                ", city='" + city + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", province='" + province + '\'' +
-                ", country='" + country + '\'' +
-                ", isOccupied=" + isOccupied +
-                '}';
+        return "House{\nProperty ID: " + id +
+                "\nAddress =" + streetNo + ", " + streetName + ", " + city +
+                ", " + postalCode + ", " + province + ", " + country +
+                "\nisOccupied = " + isOccupied +
+                "}";
     }
 }

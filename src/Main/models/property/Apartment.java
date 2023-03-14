@@ -8,20 +8,32 @@ public class Apartment extends BuildingUnit{
         this.aptNo = aptNo;
     }
 
+//    @Override
+//    public String toString() {
+//        return "Apartment{" +
+//                "aptNo=" + aptNo +
+//                ", noOfBedrooms=" + noOfBedrooms +
+//                ", noOfBathrooms=" + noOfBathrooms +
+//                ", squareFootArea=" + squareFootArea +
+//                ", id='" + id + '\'' +
+//                ", streetName='" + streetName + '\'' +
+//                ", city='" + city + '\'' +
+//                ", postalCode='" + postalCode + '\'' +
+//                ", province='" + province + '\'' +
+//                ", country='" + country + '\'' +
+//                ", isOccupied=" + isOccupied +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Apartment{" +
-                "aptNo=" + aptNo +
-                ", noOfBedrooms=" + noOfBedrooms +
-                ", noOfBathrooms=" + noOfBathrooms +
-                ", squareFootArea=" + squareFootArea +
-                ", id='" + id + '\'' +
-                ", streetName='" + streetName + '\'' +
-                ", city='" + city + '\'' +
-                ", postalCode='" + postalCode + '\'' +
-                ", province='" + province + '\'' +
-                ", country='" + country + '\'' +
-                ", isOccupied=" + isOccupied +
-                '}';
+        return "Apartment{\nProperty ID: " + id +
+                "\nAddress =" + aptNo + ", " + streetName + ", " + city +
+                ", " + postalCode + ", " + province + ", " + country +
+                "\nApartment details \nnoOfBedrooms =" + noOfBedrooms +
+                "\nnoOfBathrooms= " + noOfBathrooms +
+                "\nsquareFootArea =" + squareFootArea +
+                "\nisOccupied = " + isOccupied +
+                "}";
     }
 }

@@ -11,18 +11,27 @@ public class Tenant extends User implements Observer {
 
     boolean isRentPaid;
 
+//    @Override
+//    public String toString() {
+//        return "Tenant{" +
+//                "id='" + id + '\'' +
+//                ", name='" + name + '\'' +
+//                ", email='" + email + '\'' +
+//                ", phoneNo='" + phoneNo + '\'' +
+//                '}';
+//    }
+
     @Override
     public String toString() {
-        return "Tenant{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phoneNo='" + phoneNo + '\'' +
-                '}';
+        return "Tenant{Tenant ID: " + id +
+                "\nname = " + name +
+                "\nemail = " + email +
+                "\nphoneNo = " + phoneNo +
+                "}";
     }
 
     @Override
     public void update(Property p) {
-        System.out.println(p);
+        System.out.println("\nMessage sent to the Interested Tenant with Id: " + this.id);
     }
 }

@@ -55,7 +55,7 @@ public class PropertyRepository implements PropertyRepoInterface {
                 propertyList.add(p.clone());
             } else if(f.equals(Filter.VACANT) && !p.isOccupied()){
                 propertyList.add(p.clone());
-            } else {
+            } else if(f.equals(Filter.ALL)){
                 propertyList.add(p.clone());
             }
         }
