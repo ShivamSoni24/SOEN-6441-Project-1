@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Main.controller.admin.CancelContractController">
+   <children>
+      <BorderPane layoutX="245.0" layoutY="174.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <left>
+            <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="250.0" style="-fx-background-color: #05F08C;" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="25.0" layoutY="80.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Resources/images/logo.PNG" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="27.0" layoutY="356.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Boyz Company" textAlignment="CENTER" wrappingWidth="196.998779296875">
+                     <font>
+                        <Font name="Bodoni MT Poster Compressed" size="91.0" />
+                     </font>
+                  </Text>
+               </children>
+            </AnchorPane>
+         </left>
+         <center>
+            <AnchorPane maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="550.0" style="-fx-background-color: #268396;" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="550.0">
+                     <children>
+                        <Text layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Admin Panel" textAlignment="CENTER" wrappingWidth="550.0">
+                           <font>
+                              <Font name="Bodoni MT Poster Compressed" size="59.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Text layoutX="92.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cancel Contract" textAlignment="CENTER" wrappingWidth="366.0">
+                     <font>
+                        <Font name="Bodoni MT Poster Compressed" size="50.0" />
+                     </font>
+                  </Text>
+                  <GridPane layoutX="44.0" layoutY="158.0" prefHeight="105.0" prefWidth="461.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.00003051757812" minWidth="10.0" prefWidth="175.33329264322916" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.00004069010413" minWidth="10.0" prefWidth="278.00004069010413" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Tenant">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select Property" GridPane.rowIndex="1">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Text>
+                        <ComboBox fx:id="selectTenant" prefHeight="26.0" prefWidth="283.0" promptText="No tenants to show" GridPane.columnIndex="1" />
+                        <ComboBox fx:id="selectProperty" prefHeight="26.0" prefWidth="281.0" promptText="No rented properties available" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <Button fx:id="backToAdminMenu" layoutX="413.0" layoutY="547.0" mnemonicParsing="false" onAction="#onback" prefHeight="40.0" prefWidth="100.0" style="-fx-background-color: #05F08C;" text="Back" wrapText="true">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancelContract" layoutX="244.0" layoutY="547.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="134.0" style="-fx-background-color: #05F08C;" text="Cancel contract" onAction="#onCancelContract">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Button>
+                  <Text layoutX="92.0" layoutY="312.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Updated Tenants" textAlignment="CENTER" wrappingWidth="366.0">
+                     <font>
+                        <Font name="Bodoni MT Poster Compressed" size="35.0" />
+                     </font>
+                  </Text>
+                  <ScrollPane layoutX="36.0" layoutY="332.0" prefHeight="200.0" prefWidth="478.0">
+                     <content>
+                        <TilePane fx:id="tenantsTilePane" prefHeight="200.0" prefWidth="478.0" style="-fx-background-color: #05F08C;" />
+                     </content>
+                  </ScrollPane>
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

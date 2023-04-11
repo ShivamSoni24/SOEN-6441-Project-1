@@ -1,6 +1,7 @@
 package Main.controller;
 
 import Main.models.Contract;
+import Main.models.user.Tenant;
 import Main.service.ContractSvcInterface;
 
 import java.time.LocalDate;
@@ -21,7 +22,7 @@ public class ContractController {
         return contractSvc.getContracts();
     }
 
-    public boolean terminateContract(String propertyId, String tenantId) throws Exception{
+    public List<Tenant> terminateContract(String propertyId, String tenantId) throws Exception{
         return contractSvc.deleteContract(propertyId, tenantId);
     }
 

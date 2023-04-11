@@ -31,7 +31,7 @@ public class Tenant extends User implements Observer {
     }
 
     @Override
-    public void update(Property p) {
-        System.out.println("\nMessage sent to the Interested Tenant with Id: " + this.id);
+    public Tenant update(Property p) {
+        return this;
     }
 }

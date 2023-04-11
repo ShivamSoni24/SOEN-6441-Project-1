@@ -1,7 +1,10 @@
 package Main.observer;
 
 import Main.models.property.Property;
+import Main.models.user.Tenant;
+
+import java.util.List;
 
 public interface Observer {
-    void update(Property p);
+    Tenant update(Property p);
 }

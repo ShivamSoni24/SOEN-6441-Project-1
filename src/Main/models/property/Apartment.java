@@ -8,6 +8,13 @@ public class Apartment extends BuildingUnit{
         this.aptNo = aptNo;
     }
 
+    public void setAptNo(int aptNo) {
+        this.aptNo = aptNo;
+    }
+
+    public int getAptNo() {
+        return aptNo;
+    }
 //    @Override
 //    public String toString() {
 //        return "Apartment{" +

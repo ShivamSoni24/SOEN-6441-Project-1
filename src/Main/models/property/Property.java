@@ -1,5 +1,6 @@
 package Main.models.property;
 
+import Main.models.user.Tenant;
 import Main.observer.Observer;
 import Main.observer.Subject;
 
@@ -102,10 +103,14 @@ public abstract class Property implements Cloneable, Subject {
     }
 
     @Override
-    public void notifyListeners() {
+    public List<Tenant> notifyListeners() {
+        List<Tenant> tenants = new ArrayList<>();
+
         for(Observer o:interestedTenants){
-            o.update(this);
+            tenants.add(o.update(this));
         }
+
+        return tenants;
     }
 }
 

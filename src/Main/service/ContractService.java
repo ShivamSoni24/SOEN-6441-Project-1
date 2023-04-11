@@ -36,7 +36,7 @@ public class ContractService implements ContractSvcInterface {
     }
 
     public String createContract(Contract c) throws Exception {
-        Property p =  getPropertyAndCheckUser(c.getPropertyId(), c.getPropertyId());
+        Property p =  getPropertyAndCheckUser(c.getPropertyId(), c.getTenantId());
 
         p.setOccupied(true);
 
@@ -46,7 +46,7 @@ public class ContractService implements ContractSvcInterface {
         return contractRepo.addContract(c);
     }
 
-    public boolean deleteContract(String propertyId, String tenantId) throws Exception {
+    public List<Tenant> deleteContract(String propertyId, String tenantId) throws Exception {
         Property p = propertyRepo.getProperty(propertyId);
         if (p == null) {
             throw new Exception("property not found");
@@ -61,9 +61,11 @@ public class ContractService implements ContractSvcInterface {
         p.setOccupied(false);
         propertyRepo.updateProperty(propertyId, p);
 
-        propertyRepo.notifyAll(propertyId);
+        List<Tenant> tenants = propertyRepo.notifyAll(propertyId);
 
-        return contractRepo.deleteContract(c.getId());
+        contractRepo.deleteContract(c.getId());
+
+        return tenants;
     }
 
     public Contract getContractBy(String id) {

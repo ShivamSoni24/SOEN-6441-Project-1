@@ -13,5 +13,5 @@ public interface PropertyRepoInterface {
     Property getProperty(String id);
     void addInterest(String propertyId, Tenant t);
     List<Property> getAll(Filter f);
-    void notifyAll(String propertyId);
+    List<Tenant> notifyAll(String propertyId);
 }

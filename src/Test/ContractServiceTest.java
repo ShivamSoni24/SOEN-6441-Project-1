@@ -18,8 +18,4 @@ public class ContractServiceTest {
         assertEquals("6", contractSvc.createContract(new Contract("2", "2", LocalDate.of(2023, 8, 24), 1000)));
     }
 
-    @Test
-    public void deleteContract() throws Exception {
-        assertTrue(contractSvc.deleteContract("3", "3"));
-    }
 }

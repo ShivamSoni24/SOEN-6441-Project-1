@@ -2,6 +2,7 @@ package Main;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 import Main.controller.ContractController;
@@ -11,8 +12,14 @@ import Main.models.Contract;
 import Main.models.user.Tenant;
 import Main.repository.*;
 import Main.service.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+import javafx.scene.Scene;
 
-public class Main {
+public class Main extends Application {
     // Injecting dependencies
     public static UserRepoInterface userRepo = new UserRepository();
     public static UserSvcInterface userSvc = new UserService(userRepo);
@@ -48,7 +55,7 @@ public class Main {
             }
         }
     }
-    public static void main(String[] args) {
+    public static void cmdExecution() {
 
         Scanner sc = new Scanner(System.in);
         int choice;
@@ -259,5 +266,30 @@ public class Main {
                     System.out.println("Invalid choice. Please try again.");
             }
         } while (choice != 13);
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("views/home/home-view.fxml")));
+
+        // Create a new scene with the root node as the parent
+        Scene scene = new Scene(root, 800, 600);
+
+        // Set the title of the stage
+        primaryStage.setTitle("The Boyz Company");
+
+        // Set the scene for the stage
+        primaryStage.setScene(scene);
+
+        // Fix the window size
+        primaryStage.setResizable(false);
+
+        // Show the stage
+        primaryStage.show();
+    }
+
+    public static void main(String[] args) {
+        // launching the GUI
+        launch(args);
     }
 }

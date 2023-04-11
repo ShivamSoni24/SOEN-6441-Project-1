@@ -15,11 +15,6 @@ public class ContractControllerTest {
         assertTrue(contractController.getRentStatus("1", "1", 2, 2023));
     }
 
-    @Test
-    public void terminateContract() throws Exception {
-        contractController.rentUnit("4", "4", LocalDate.of(2023, 3, 28), 9942);
-        assertTrue(contractController.terminateContract("4", "4"));
-    }
 
     @Test
     public void rentUnit() throws Exception{

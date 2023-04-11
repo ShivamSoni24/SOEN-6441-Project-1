@@ -64,9 +64,9 @@ public class PropertyRepository implements PropertyRepoInterface {
     }
 
     @Override
-    public void notifyAll(String propertyId) {
+    public List<Tenant> notifyAll(String propertyId) {
         Property p = properties.get(propertyId);
 
-        p.notifyListeners();
+        return p.notifyListeners();
     }
 }
