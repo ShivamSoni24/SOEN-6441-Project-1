@@ -1,0 +1,8 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Δ³…ωÿÿÿÿ
+Z
+java:S6201""DReplace this instanceof check and cast with 'instanceof House house'(«θυ„
+Z
+java:S6201/"DReplace this instanceof check and cast with 'instanceof Condo condo'(²Α³τ
+b
+java:S6201<"LReplace this instanceof check and cast with 'instanceof Apartment apartment'(’τ π

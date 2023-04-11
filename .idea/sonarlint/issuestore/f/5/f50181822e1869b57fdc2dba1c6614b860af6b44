@@ -1,0 +1,46 @@
+
+e
+java:S1192;"HDefine a constant instead of duplicating this literal "H3H 2N7" 4 times.(Í“Ñ8ìõèÛí0
+k
+java:S11929"IDefine a constant instead of duplicating this literal "Montreal" 6 times.(‹»¦ºúÿÿÿÿ8íõèÛí0
+v
+java:S1104"TMake userRepo a static final constant or non-public and provide accessors if needed.(ÉİÇãúÿÿÿÿ8íõèÛí0
+u
+java:S1104"SMake userSvc a static final constant or non-public and provide accessors if needed.(ú„†¾úÿÿÿÿ8íõèÛí0
+w
+java:S1104"ZMake userController a static final constant or non-public and provide accessors if needed.(ï½¨¡8îõèÛí0
+u
+java:S1104"XMake propertyRepo a static final constant or non-public and provide accessors if needed.(ñåÃú8îõèÛí0
+t
+java:S1104"WMake propertySvc a static final constant or non-public and provide accessors if needed.(ŞöÜ›8îõèÛí0
+€
+java:S1104"^Make propertyController a static final constant or non-public and provide accessors if needed.(×ù¶ÿÿÿÿÿ8îõèÛí0
+z
+java:S1104"XMake contractRepo a static final constant or non-public and provide accessors if needed.(—à®ƒüÿÿÿÿ8îõèÛí0
+y
+java:S1104"WMake contractSvc a static final constant or non-public and provide accessors if needed.(Âü¯åûÿÿÿÿ8îõèÛí0
+{
+java:S1104"^Make contractController a static final constant or non-public and provide accessors if needed.(òÒ“8îõèÛí0
+P
+java:S1444".Make this "public static userRepo" field final(ÉİÇãúÿÿÿÿ8îõèÛí0
+O
+java:S1444"-Make this "public static userSvc" field final(ú„†¾úÿÿÿÿ8îõèÛí0
+Q
+java:S1444"4Make this "public static userController" field final(ï½¨¡8îõèÛí0
+O
+java:S1444"2Make this "public static propertyRepo" field final(ñåÃú8îõèÛí0
+N
+java:S1444"1Make this "public static propertySvc" field final(ŞöÜ›8îõèÛí0
+Z
+java:S1444"8Make this "public static propertyController" field final(×ù¶ÿÿÿÿÿ8îõèÛí0
+T
+java:S1444"2Make this "public static contractRepo" field final(—à®ƒüÿÿÿÿ8îõèÛí0
+S
+java:S1444"1Make this "public static contractSvc" field final(Âü¯åûÿÿÿÿ8îõèÛí0
+U
+java:S1444"8Make this "public static contractController" field final(òÒ“8îõèÛí0
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(±¢™ùÿÿÿÿ8îõèÛí0
+£
+java:S1186P"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÂŞº÷úÿÿÿÿ8õõèÛí0
+\
+java:S1118":Add a private constructor to hide the implicit public one.(Òè¸Óıÿÿÿÿ8÷õèÛí0

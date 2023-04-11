@@ -1,0 +1,8 @@
+
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(±¢™ùÿÿÿÿ8¨Žûæí0
+`
+java:S1155">Use isEmpty() to check whether the collection is empty or not.(Ö›Æ—øÿÿÿÿ8¶Žûæí0
+\
+java:S1128":Remove this unused import 'Main.models.property.Property'.(ÿ’èõÿÿÿÿÿ8¸Žûæí0
+M
+java:S5960"+Remove this assertion from production code.(å¦’þÿÿÿÿÿ8¸Žûæí0
